@@ -9,6 +9,30 @@ export default function ServiceDetails() {
 	const handleClick = (index) => {
 		setActiveItem(index);
 	};
+
+	const accordions = [
+		{
+			id: 1,
+			title: "Where should I incorporate my business?",
+			info: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't.",
+		},
+		{
+			id: 2,
+			title: "How long should a business plan be?",
+			info: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't.",
+		},
+		{
+			id: 3,
+			title: "What is included in your services?",
+			info: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't.",
+		},
+		{
+			id: 4,
+			title: "What type of company is measured?",
+			info: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't.",
+		},
+	];
+
 	return (
 		<>
 			<Layout headerStyle={1} footerStyle={2} breadcrumbTitle="Services Details">
@@ -28,11 +52,11 @@ export default function ServiceDetails() {
 														<Link href="/service-details">Database Security</Link>
 														<i className="fa-solid fa-arrow-right-long" />
 													</li>
-													<li>
+													<li className="active">
 														<Link href="/service-details">IT Consultancy</Link>
 														<i className="fa-solid fa-arrow-right-long" />
 													</li>
-													<li className="active">
+													<li>
 														<Link href="/service-details">App Development</Link>
 														<i className="fa-solid fa-arrow-right-long" />
 													</li>
@@ -160,110 +184,39 @@ export default function ServiceDetails() {
 												libero faucibus malesuada.
 											</p>
 										</div>
+
 										<div className="faq-content style-3">
 											<div className="faq-accordion">
 												<div className="accordion" id="accordion">
-													<div className="accordion-item mb-3 wow fadeInUp" data-wow-delay=".3s">
-														<h5 className="accordion-header" onClick={() => handleClick(1)}>
-															<button
-																className={
-																	activeItem == 1
-																		? "accordion-button"
-																		: "accordion-button collapsed"
-																}>
-																Where should I incorporate my business?
-															</button>
-														</h5>
+													{accordions.map((accordion) => (
 														<div
-															id="faq1"
-															className={
-																activeItem == 1
-																	? "accordion-collapse collapse show"
-																	: "accordion-collapse collapse"
-															}
-															data-bs-parent="#accordion">
-															<div className="accordion-body">
-																There are many variations of passages of Lorem Ipsum available, but
-																the majority have suffered alteration in some form, by injected
-																humour, or randomised words which don't.
+															key={accordion.id}
+															className="accordion-item mb-3 wow fadeInUp"
+															data-wow-delay={`.${1 + accordion.id * 2}s`}>
+															<h5
+																className="accordion-header"
+																onClick={() => handleClick(accordion.id)}>
+																<button
+																	className={
+																		activeItem == accordion.id
+																			? "accordion-button"
+																			: "accordion-button collapsed"
+																	}>
+																	{accordion.title}
+																</button>
+															</h5>
+															<div
+																id={`faq${accordion.id}`}
+																className={
+																	activeItem == accordion.id
+																		? "accordion-collapse collapse show"
+																		: "accordion-collapse collapse"
+																}
+																data-bs-parent="#accordion">
+																<div className="accordion-body">{accordion.info}</div>
 															</div>
 														</div>
-													</div>
-													<div className="accordion-item mb-3 wow fadeInUp" data-wow-delay=".5s">
-														<h5 className="accordion-header" onClick={() => handleClick(2)}>
-															<button
-																className={
-																	activeItem == 2
-																		? "accordion-button"
-																		: "accordion-button collapsed"
-																}>
-																How long should a business plan be?
-															</button>
-														</h5>
-														<div
-															id="faq2"
-															className={
-																activeItem == 2
-																	? "accordion-collapse collapse show"
-																	: "accordion-collapse collapse"
-															}>
-															<div className="accordion-body">
-																There are many variations of passages of Lorem Ipsum available, but
-																the majority have suffered alteration in some form, by injected
-																humour, or randomised words which don't.
-															</div>
-														</div>
-													</div>
-													<div className="accordion-item mb-3 wow fadeInUp" data-wow-delay=".7s">
-														<h5 className="accordion-header" onClick={() => handleClick(3)}>
-															<button
-																className={
-																	activeItem == 3
-																		? "accordion-button"
-																		: "accordion-button collapsed"
-																}>
-																What is included in your services?
-															</button>
-														</h5>
-														<div
-															id="faq3"
-															className={
-																activeItem == 3
-																	? "accordion-collapse collapse show"
-																	: "accordion-collapse collapse"
-															}>
-															<div className="accordion-body">
-																There are many variations of passages of Lorem Ipsum available, but
-																the majority have suffered alteration in some form, by injected
-																humour, or randomised words which don't.
-															</div>
-														</div>
-													</div>
-													<div className="accordion-item wow fadeInUp" data-wow-delay=".7s">
-														<h5 className="accordion-header" onClick={() => handleClick(4)}>
-															<button
-																className={
-																	activeItem == 4
-																		? "accordion-button"
-																		: "accordion-button collapsed"
-																}>
-																What type of company is measured?
-															</button>
-														</h5>
-														<div
-															id="faq4"
-															className={
-																activeItem == 4
-																	? "accordion-collapse collapse show"
-																	: "accordion-collapse collapse"
-															}>
-															<div className="accordion-body">
-																There are many variations of passages of Lorem Ipsum available, but
-																the majority have suffered alteration in some form, by injected
-																humour, or randomised words which don't.
-															</div>
-														</div>
-													</div>
+													))}
 												</div>
 											</div>
 										</div>

@@ -88,9 +88,9 @@ export default function ProjectSlider1({ showDots }) {
 							<div className="project-items">
 								<div className="project-image" style={{ width: "318px", height: "457px" }}>
 									<ImageWithFallback
-										fallbackSrc={"/assets/img/logo/black-logo.svg"}
+										fallbackSrc="/assets/img/logo/black-logo.svg"
 										src={project.img}
-										alt={"project image"}
+										alt="project image"
 									/>
 									<div className="project-content">
 										<p>{project.projectType}</p>

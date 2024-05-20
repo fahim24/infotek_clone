@@ -1,9 +1,111 @@
 import Link from "next/link";
 
 export default function Menu() {
+	const navigations = [
+		{
+			name: "Home",
+			to: "/",
+		},
+		{
+			name: "About",
+			to: "/about",
+		},
+		{
+			name: "Services",
+			to: "/news",
+			submenu: [
+				{ name: "Services", to: "/service" },
+				{ name: "Service Carousel", to: "/service-carousel" },
+				{ name: "Service Details", to: "/service-details" },
+			],
+		},
+		{
+			name: "Pages",
+			to: "/news",
+			submenu: [
+				{
+					name: "Projects",
+					to: "/project",
+					submenu: [
+						{ name: "Project", to: "/project" },
+						{ name: "Project Carousel", to: "/project-carousel" },
+						{ name: "Project Details", to: "/project-details" },
+					],
+				},
+				{
+					name: "Team",
+					to: "/team",
+					submenu: [
+						{ name: "Our Team", to: "/team" },
+						{ name: "Team Carousel", to: "/team-carousel" },
+						{ name: "Team Details", to: "/team-details" },
+					],
+				},
+				{ name: "Pricing", to: "/pricing" },
+				{ name: "Faq's", to: "/faq" },
+				{ name: "404 Page", to: "/404" },
+			],
+		},
+		{
+			name: "Blog",
+			to: "/news",
+			submenu: [
+				{ name: "Blog Grid", to: "/news" },
+				{ name: "Blog Standard", to: "/news-standard" },
+				{ name: "Blog Details", to: "/news-details" },
+			],
+		},
+		{ name: "Contact", to: "/contact" },
+	];
+
 	return (
 		<>
 			<ul>
+				{navigations.map((navigation) =>
+					// Check if has submenu
+					!navigation.submenu ? (
+						// If no submenu
+						<li key={navigation.name}>
+							<Link href={navigation.to}>{navigation.name}</Link>
+						</li>
+					) : (
+						// if submenu
+						<li className="has-dropdown" key={navigation.name}>
+							<Link href={navigation.to}>
+								{navigation.name}
+								<i className="fas fa-angle-down ps-1" />
+							</Link>
+							<ul className="submenu">
+								{/* looping submenu*/}
+								{navigation.submenu.map((submenu) =>
+									// check if submenu has its own submenu
+									!submenu.submenu ? (
+										// if not
+										<li key={submenu.name}>
+											<Link href={submenu.to}>{submenu.name}</Link>
+										</li>
+									) : (
+										// if has submenu
+										<li className="has-dropdown" key={submenu.name}>
+											<Link href={submenu.to}>
+												{submenu.name}
+												<i className="fas fa-angle-down ps-1" />
+											</Link>
+											<ul className="submenu">
+												{/* looping submenu of submneu */}
+												{submenu.submenu.map((submenu) => (
+													<li key={submenu.name}>
+														<Link href={submenu.to}>{submenu.name}</Link>
+													</li>
+												))}
+											</ul>
+										</li>
+									)
+								)}
+							</ul>
+						</li>
+					)
+				)}
 				{/* <li className="has-dropdown active menu-thumb">
 					<Link href="/">
 						Home
@@ -80,7 +182,7 @@ export default function Menu() {
 						</li>
 					</ul>
 				</li> */}
-				<li>
+				{/* <li>
 					<Link href="/">Home</Link>
 				</li>
 				<li>
@@ -173,7 +275,7 @@ export default function Menu() {
 				</li>
 				<li>
 					<Link href="/contact">Contact</Link>
-				</li>
+				</li> */}
 			</ul>
 		</>
 	);

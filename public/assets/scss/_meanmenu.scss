@@ -1,19 +1,19 @@
 .mean-container a.meanmenu-reveal {
 	display: none;
-  }
-  
-  .mean-container .mean-nav {
+}
+
+.mean-container .mean-nav {
 	background: none;
 	margin-top: 0;
-  }
-  
-  .mean-container .mean-bar {
+}
+
+.mean-container .mean-bar {
 	padding: 0;
 	min-height: auto;
 	background: none;
-  }
-  
-  .mean-container .mean-nav > ul {
+}
+
+.mean-container .mean-nav > ul {
 	padding: 0;
 	margin: 0;
 	width: 100%;
@@ -25,14 +25,14 @@
 		gap: 30px;
 		justify-content: space-between;
 
-		@include breakpoint (max-lg){
+		@include breakpoint(max-lg) {
 			flex-wrap: wrap;
 		}
 
 		.homemenu {
 			position: relative;
 
-			@include breakpoint (max-lg){
+			@include breakpoint(max-lg) {
 				max-width: 300px;
 				text-align: center;
 				margin: 0 auto;
@@ -72,7 +72,13 @@
 				}
 
 				&::before {
-					background: -webkit-gradient(linear, left top, left bottom, from(rgba(99, 92, 92, 0)), to(#5e5ef6));
+					background: -webkit-gradient(
+						linear,
+						left top,
+						left bottom,
+						from(rgba(99, 92, 92, 0)),
+						to(#5e5ef6)
+					);
 					background: linear-gradient(to bottom, rgba(99, 92, 92, 0) 0%, #5e5ef6 100%);
 					background-repeat: no-repeat;
 					background-size: cover;
@@ -88,8 +94,7 @@
 					transition: all 0.3s ease-in-out;
 					content: "";
 				}
-				&:hover{
-
+				&:hover {
 					&::before {
 						visibility: visible;
 						opacity: 1;
@@ -120,13 +125,13 @@
 			}
 		}
 	}
-  }
-  
-  .mean-container a.meanmenu-reveal {
+}
+
+.mean-container a.meanmenu-reveal {
 	display: none !important;
-  }
-  
-  .mean-container .mean-nav ul li a {
+}
+
+.mean-container .mean-nav ul li a {
 	width: 100%;
 	padding: 10px 0;
 	color: $header-color;
@@ -140,45 +145,45 @@
 	&:hover {
 		color: $theme-color;
 	}
-  }
-  .mean-container .mean-nav ul li a:last-child {
+}
+.mean-container .mean-nav ul li a:last-child {
 	border-bottom: 0;
-  }
-  .mean-container .mean-nav ul li a:hover {
+}
+.mean-container .mean-nav ul li a:hover {
 	color: $theme-color-2;
-  }
-  
-  .mean-container .mean-nav ul li a.mean-expand {
+}
+
+.mean-container .mean-nav ul li a.mean-expand {
 	margin-top: 5px;
 	padding: 0 !important;
-  }
-  
-  .mean-container .mean-nav ul li > a > i {
+}
+
+.mean-container .mean-nav ul li > a > i {
 	display: none;
-  }
-  
-  .mean-container .mean-nav ul li > a.mean-expand i {
+}
+
+.mean-container .mean-nav ul li > a.mean-expand i {
 	display: inline-block;
 	font-size: 18px;
-  }
-  
-  .mean-container .mean-nav > ul > li:first-child > a {
+}
+
+.mean-container .mean-nav > ul > li:first-child > a {
 	border-top: 0;
-  }
-  
-  .mean-container .mean-nav ul li a.mean-expand.mean-clicked i {
+}
+
+.mean-container .mean-nav ul li a.mean-expand.mean-clicked i {
 	transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
 	-o-transform: rotate(45deg);
 	@include transition;
-  }
-  
-  .mean-container .mean-nav ul li .mega-menu li a {
+}
+
+.mean-container .mean-nav ul li .mega-menu li a {
 	height: 200px;
 	width: 100%;
 	padding: 0;
 	border-top: 0;
 	margin-bottom: 20px;
-  }
+}
