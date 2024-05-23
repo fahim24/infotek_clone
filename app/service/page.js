@@ -1,8 +1,8 @@
-import Accordion1 from "@/components/elements/Accordion1";
 import Layout from "@/components/layout/Layout";
 import Contact1 from "@/components/sections/Contact1";
 import Faq1 from "@/components/sections/Faq1";
 import Link from "next/link";
+import slugify from "slugify";
 export default function Service() {
 	const services = [
 		{
@@ -71,10 +71,14 @@ export default function Service() {
 											</div>
 											<div className="content">
 												<h4>
-													<Link href="/service-details">{service.name}</Link>
+													<Link href={`/service-details/${slugify(service.name)}`}>
+														{service.name}
+													</Link>
 												</h4>
 												<p>{service.details}</p>
-												<Link href="/service-details" className="theme-btn-2 mt-3">
+												<Link
+													href={`/service-details/${slugify(service.name)}`}
+													className="theme-btn-2 mt-3">
 													read More
 													<i className="fa-solid fa-arrow-right-long" />
 												</Link>

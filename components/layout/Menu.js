@@ -12,7 +12,7 @@ export default function Menu() {
 		},
 		{
 			name: "Services",
-			to: "/news",
+			to: "/service",
 			submenu: [
 				{ name: "Services", to: "/service" },
 				{ name: "Service Carousel", to: "/service-carousel" },
@@ -42,6 +42,7 @@ export default function Menu() {
 					],
 				},
 				{ name: "Pricing", to: "/pricing" },
+				{ name: "Theme", to: "/theme" },
 				{ name: "Faq's", to: "/faq" },
 				{ name: "404 Page", to: "/404" },
 			],
@@ -55,7 +56,14 @@ export default function Menu() {
 				{ name: "Blog Details", to: "/news-details" },
 			],
 		},
-		{ name: "Contact", to: "/contact" },
+		{
+			name: "Contact",
+			to: "/contact",
+			submenu: [
+				{ name: "Contact", to: "/contact" },
+				{ name: "Messages", to: "/contact/message" },
+			],
+		},
 	];
 
 	return (

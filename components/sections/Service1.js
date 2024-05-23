@@ -3,6 +3,8 @@ import ImageWithFallback from "@/components/ImageOrFallback";
 import Link from "next/link";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import slugify from "slugify";
+
 const services = [
 	{
 		id: 1,
@@ -150,10 +152,14 @@ export default function Service1() {
 											</div>
 											<div className="content">
 												<h4>
-													<Link href="/service-details">{service.title}</Link>
+													<Link href={`/service-details/${slugify(service.title)}`}>
+														{service.title}
+													</Link>
 												</h4>
 												<p>{service.description}</p>
-												<Link href="/service-details" className="theme-btn-2 mt-3">
+												<Link
+													href={`/service-details/${slugify(service.title)}`}
+													className="theme-btn-2 mt-3">
 													read More
 													<i className="fa-solid fa-arrow-right-long" />
 												</Link>

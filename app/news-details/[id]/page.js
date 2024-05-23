@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
-export default function NewsDetails() {
+export default function NewsDetailsbyID() {
 	const categories = [
 		{ name: "Database Security", amount: 8 },
 		{ name: "IT Consultancy", amount: 11 },

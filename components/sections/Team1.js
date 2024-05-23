@@ -77,6 +77,7 @@ export default function Team1() {
 					<div className="team-wrapper">
 						{teams.map((team, idx) => (
 							<div
+								key={idx}
 								className={`team-items bor-bottom wow fadeInUp ${idx == 0 ? "bor-top" : "pt-0"}`}
 								data-wow-delay={`.${1 + 2 * team.id}s`}>
 								<div className="team-title">
