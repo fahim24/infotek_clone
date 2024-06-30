@@ -24,8 +24,10 @@ function Messages() {
 	const handleSearch = (e) => {
 		let searchValue = e.target.value;
 
-		let filteredData = messages.filter((message) =>
-			Object.values(message).some((value) => value.includes(searchValue))
+		const filteredData = messages.filter((message) =>
+			Object.entries(message).some(
+				([key, value]) => key !== "id" && typeof value === "string" && value.includes(searchValue)
+			)
 		);
 
 		setShow(filteredData);
@@ -94,7 +96,7 @@ function Messages() {
 												x
 											</button>
 											<p style={{ fontSize: "12px", marginBottom: "4px" }}>{message.date}</p>
-											<p style={{ fontSize: "20px", color: "#384BFF", fontWeight: "bold" }}>
+											<p style={{ fontSize: "20px", color: "var(--theme)", fontWeight: "bold" }}>
 												{message.name}
 											</p>
 											<p style={{ fontSize: "14px", marginBottom: "8px" }}>{message.email}</p>
